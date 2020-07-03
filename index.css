@@ -1,0 +1,63 @@
+html, body { min-height: 100%; }
+
+body {
+    margin-left: 6em;
+    margin-right: 6em;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgb(111, 111, 111) 0%, rgb(230, 230, 230) 12%, rgb(255, 255, 255) 100%);
+    font-family: sans-serif;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.crosshairs-container {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(128px, 148px) );
+}
+
+.crosshair-info {
+    margin: 12px;
+    position: relative;
+}
+
+.crosshair-info {
+    transition: 200ms;
+    width: 128px;
+    height: 128px;
+}
+
+.copy-text {
+    position: absolute;
+    transition: 200ms;
+    opacity: 0;
+    top: 33px;
+    left: 7px;
+    margin: 16px;
+    font-size: x-large;
+    cursor: pointer;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+img {
+    transition: 200ms;
+}
+
+.crosshair-info:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+    /* border-radius: 2em; */
+    /* filter: blur(2px); */
+    cursor: pointer;
+} 
+
+/* .crosshair-info:hover .copy-text {
+    opacity: 1;
+} */
+
+
+.crosshair-info > img {
+    box-shadow: 2px 2px 10px black;
+}

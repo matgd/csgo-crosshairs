@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>CS:GO Crosshairs</title>
+</head>
+
+<body>
+    <h1>CS:GO crosshairs</h1>
+    <h2>Click on image to copy code</h2>
+    <div id="main-container" class="crosshairs-container">
+        <!-- <div id="crosshair1" class="crosshair-info">
+            <img src="img/1.jpg" width="128">
+            <div class="copy-text">CLICK <br> TO <br> COPY</div>
+        </div> -->
+    </div>
+    <script>
+        const crosshairs = [
+            'CSGO-RCKzo-oGuRa-J5FzV-YvtMx-36SKF',
+            'CSGO-5EXfH-v2rYW-AGYm2-MYqFq-TNqNO',
+            'CSGO-YhxuK-CkYhp-2S38o-5VtMC-xpjjD',
+            'CSGO-TxoYv-k6mta-xEWm8-3mFqm-6dMwF',
+        ]
+
+        const onImageClick = id => {
+            document.getElementById(`copy-hint${id}`).style.opacity = 1;
+            document.getElementById(`img${id}`).style.opacity = 0.3;
+            navigator.clipboard.writeText(crosshairs[id - 1]);
+        }
+
+        const onMouseLeave = id => {
+            document.getElementById(`copy-hint${id}`).style.opacity = 0;
+            document.getElementById(`img${id}`).style.opacity = 1;
+        };
+
+        const createCrosshairInfo = id => {
+            infoDiv = document.createElement('div');
+            infoDiv.id = `crosshair${id}`;
+            infoDiv.className = 'crosshair-info';
+            infoDiv.onclick = () => onImageClick(id);
+            infoDiv.onmouseleave = () => onMouseLeave(id);
+            
+            image = document.createElement('img');
+            image.id = `img${id}`;
+            image.src = `img/${id}.jpg`;
+            image.width = 128
+
+            copyHint = document.createElement('div');
+            copyHint.id = `copy-hint${id}`;
+            copyHint.className = 'copy-text';
+            copyHint.innerHTML = 'Copied!';
+            copyHint.style.color = 'green';
+
+            infoDiv.appendChild(image);
+            infoDiv.appendChild(copyHint);
+
+            return infoDiv;
+        }
+        
+        for (let i = 1; i < crosshairs.length + 1; i++) {
+            document.getElementById('main-container').appendChild(createCrosshairInfo(i));
+        }
+
+    </script>
+</body>
+
+</html>
