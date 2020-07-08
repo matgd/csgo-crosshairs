@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
     <title>CS:GO Crosshairs</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>CS:GO crosshairs</h1>
     <h2>Click on image to copy code</h2>
     <div id="main-container" class="crosshairs-container">
-        <!-- <div id="crosshair1" class="crosshair-info">
+      <!-- <div id="crosshair1" class="crosshair-info">
             <img src="img/1.jpg" width="128">
             <div class="copy-text">CLICK <br> TO <br> COPY</div>
         </div> -->
     </div>
     <script>
-        const crosshairs = [
-            'CSGO-RCKzo-oGuRa-J5FzV-YvtMx-36SKF',
-            'CSGO-5EXfH-v2rYW-AGYm2-MYqFq-TNqNO',
-            'CSGO-YhxuK-CkYhp-2S38o-5VtMC-xpjjD',
-            'CSGO-TxoYv-k6mta-xEWm8-3mFqm-6dMwF',
-            'CSGO-WW9Nt-X5tSs-2bJ95-Rc3z6-EDCcO',
-            'CSGO-d5ZbO-ASr2H-HEnCq-QHJY3-qXJzN',
-            'CSGO-LEo9E-vxAOA-5Opib-3aacz-WULoD',
-            'CSGO-mKC3t-mqH3F-PhsO5-vymtv-uFFZG',
-            'CSGO-wQW7s-3csTp-QSqQ7-sJZQF-LqbxJ',
-        ]
+      const crosshairs = [
+        'CSGO-RCKzo-oGuRa-J5FzV-YvtMx-36SKF',
+        'CSGO-5EXfH-v2rYW-AGYm2-MYqFq-TNqNO',
+        'CSGO-YhxuK-CkYhp-2S38o-5VtMC-xpjjD',
+        'CSGO-TxoYv-k6mta-xEWm8-3mFqm-6dMwF',
+        'CSGO-WW9Nt-X5tSs-2bJ95-Rc3z6-EDCcO',
+        'CSGO-d5ZbO-ASr2H-HEnCq-QHJY3-qXJzN',
+        'CSGO-LEo9E-vxAOA-5Opib-3aacz-WULoD',
+        'CSGO-mKC3t-mqH3F-PhsO5-vymtv-uFFZG',
+        'CSGO-wQW7s-3csTp-QSqQ7-sJZQF-LqbxJ',
+      ];
 
-        const onImageClick = id => {
-            document.getElementById(`copy-hint${id}`).style.opacity = 1;
-            document.getElementById(`img${id}`).style.opacity = 0.3;
-            navigator.clipboard.writeText(crosshairs[id - 1]);
+      let lastCopiedId = -1;
+
+      const onImageClick = id => {
+        if (lastCopiedId > -1 && lastCopiedId <= crosshairs.length) {
+          document.getElementById(`copy-hint${lastCopiedId}`).style.opacity = 0;
+          document.getElementById(`img${lastCopiedId}`).style.opacity = 1;
         }
 
-        const onMouseLeave = id => {
-            document.getElementById(`copy-hint${id}`).style.opacity = 0;
-            document.getElementById(`img${id}`).style.opacity = 1;
-        };
+        document.getElementById(`copy-hint${id}`).style.opacity = 1;
+        document.getElementById(`img${id}`).style.opacity = 0.3;
+        navigator.clipboard.writeText(crosshairs[id - 1]);
+        lastCopiedId = id;
+      };
 
-        const createCrosshairInfo = id => {
-            infoDiv = document.createElement('div');
-            infoDiv.id = `crosshair${id}`;
-            infoDiv.className = 'crosshair-info';
-            infoDiv.onclick = () => onImageClick(id);
-            infoDiv.onmouseleave = () => onMouseLeave(id);
+      const createCrosshairInfo = id => {
+        infoDiv = document.createElement('div');
+        infoDiv.id = `crosshair${id}`;
+        infoDiv.className = 'crosshair-info';
+        infoDiv.onclick = () => onImageClick(id);
+        infoDiv.onmouseleave = () => onMouseLeave(id);
 
-            image = document.createElement('img');
-            image.id = `img${id}`;
-            image.src = `img/${id}.jpg`;
-            image.width = 128
+        image = document.createElement('img');
+        image.id = `img${id}`;
+        image.src = `img/${id}.jpg`;
+        image.width = 128;
 
-            copyHint = document.createElement('div');
-            copyHint.id = `copy-hint${id}`;
-            copyHint.className = 'copy-text';
-            copyHint.innerHTML = 'Copied!';
-            copyHint.style.color = 'green';
+        copyHint = document.createElement('div');
+        copyHint.id = `copy-hint${id}`;
+        copyHint.className = 'copy-text';
+        copyHint.innerHTML = 'Copied!';
+        copyHint.style.color = 'green';
 
-            infoDiv.appendChild(image);
-            infoDiv.appendChild(copyHint);
+        infoDiv.appendChild(document.createElement('span'));
+        infoDiv.appendChild(document.createElement('span'));
+        infoDiv.appendChild(document.createElement('span'));
+        infoDiv.appendChild(document.createElement('span'));
+        infoDiv.appendChild(image);
+        infoDiv.appendChild(copyHint);
 
-            return infoDiv;
-        }
+        return infoDiv;
+      };
 
-        for (let i = 1; i < crosshairs.length + 1; i++) {
-            document.getElementById('main-container').appendChild(createCrosshairInfo(i));
-        }
-
+      for (let i = 1; i < crosshairs.length + 1; i++) {
+        document.getElementById('main-container').appendChild(createCrosshairInfo(i));
+      }
     </script>
-</body>
-
+  </body>
 </html>
