@@ -21,11 +21,13 @@ h2 {
 .crosshairs-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(128px, 148px));
+  justify-content: center;
 }
 
 .crosshair-info {
   margin: 12px;
   position: relative;
+  margin-bottom: 0;
 }
 
 .crosshair-info {
