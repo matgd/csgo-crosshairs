@@ -9,6 +9,7 @@ const crosshairs = [
   'CSGO-mKC3t-mqH3F-PhsO5-vymtv-uFFZG',
   'CSGO-wQW7s-3csTp-QSqQ7-sJZQF-LqbxJ',
   'CSGO-VmaUc-kqUBo-hq3ME-aqYqw-EvPcF',
+  'CSGO-LQTWn-COn9q-p5JcA-Fq93G-d9aYO',
   'CSGO-FKd4t-DJcPw-8XzSp-rjL37-f78WB',
   'CSGO-vRXer-r9Mzj-ftXAw-dafPR-mSD3J',
   'CSGO-jvRNY-d8X8v-xyOjO-qML4W-JK5mA',
@@ -18,5 +19,4 @@ const crosshairs = [
   'CSGO-4cBdS-CWqFz-h6OBm-oZrQF-FembN',
   'CSGO-aESpF-f5nvf-MAuvW-8Kzbo-94nQD',
   'CSGO-N4Ej8-3qxdS-JXGAT-Kn9wZ-G5SKF',
-  'CSGO-LQTWn-COn9q-p5JcA-Fq93G-d9aYO',
 ];
