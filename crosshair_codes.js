@@ -19,4 +19,5 @@ const crosshairs = [
   'CSGO-4cBdS-CWqFz-h6OBm-oZrQF-FembN',
   'CSGO-aESpF-f5nvf-MAuvW-8Kzbo-94nQD',
   'CSGO-N4Ej8-3qxdS-JXGAT-Kn9wZ-G5SKF',
+  'CSGO-sJsWh-G9Asn-N3qNq-eMhEa-UNCJC',
 ];
